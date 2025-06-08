@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  build:
+  buildtest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,3 +21,19 @@ jobs:
 
       - name: Run tests
         run: npm test
+  Deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Deploy to production
+        run: echo "Deploying to production server..."
+   
