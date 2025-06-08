@@ -22,7 +22,6 @@ jobs:
       - name: Run tests
         run: npm test
   Deployment:
-    needs: buildtest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
